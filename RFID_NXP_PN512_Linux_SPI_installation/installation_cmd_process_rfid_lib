@@ -1,0 +1,213 @@
+
+############################################
+--------------------------------------------
+NXP PN512 
+RFID 13.56 MHz 
+Explore NFC 
+
+Features
+Reader/writer functionality compatible with ISO/IEC 14443A&B, MIFARE®, FeliCa and NFC Forum tag types (Jewel, MIFARE UltraLight®, FeliCa, MIFARE® DESFire®)
+--------------------------------------------
+############################################
+https://github.com/svvitale/nxppy
+
+
+Installation process
+--------------------------
+
+pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ sudo apt-get install build-essential cmake python3-dev python2.7-dev
+-----------------------------------------------------------------------------------------------------------------------------------
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances       
+Lecture des informations d'état... Fait
+build-essential is already the newest version (12.3).
+python2.7-dev is already the newest version (2.7.13-2+deb9u3).
+python2.7-dev passé en « installé manuellement ».
+python3-dev is already the newest version (3.5.3-1).
+python3-dev passé en « installé manuellement ».
+The following additional packages will be installed:
+  cmake-data libjsoncpp1
+Paquets suggérés :
+  codeblocks eclipse ninja-build
+Les NOUVEAUX paquets suivants seront installés :
+  cmake cmake-data libjsoncpp1
+0 mis à jour, 3 nouvellement installés, 0 à enlever et 211 non mis à jour.
+Il est nécessaire de prendre 3'685 ko dans les archives.
+Après cette opération, 19.0 Mo d'espace disque supplémentaires seront utilisés.
+Souhaitez-vous continuer ? [O/n] O
+Réception de:1 http://mirror.init7.net/raspbian/raspbian stretch/main armhf cmake-data all 3.7.2-1 [1'216 kB]
+Réception de:2 http://mirror.init7.net/raspbian/raspbian stretch/main armhf libjsoncpp1 armhf 1.7.4-3 [66.2 kB]
+Réception de:3 http://mirror.init7.net/raspbian/raspbian stretch/main armhf cmake armhf 3.7.2-1 [2'402 kB]
+3'685 ko réceptionnés en 1s (3'005 ko/s)
+Sélection du paquet cmake-data précédemment désélectionné.
+(Lecture de la base de données... 140085 fichiers et répertoires déjà installés.)
+Préparation du dépaquetage de .../cmake-data_3.7.2-1_all.deb ...
+Dépaquetage de cmake-data (3.7.2-1) ...
+Sélection du paquet libjsoncpp1:armhf précédemment désélectionné.
+Préparation du dépaquetage de .../libjsoncpp1_1.7.4-3_armhf.deb ...
+Dépaquetage de libjsoncpp1:armhf (1.7.4-3) ...
+Sélection du paquet cmake précédemment désélectionné.
+Préparation du dépaquetage de .../cmake_3.7.2-1_armhf.deb ...
+Dépaquetage de cmake (3.7.2-1) ...
+Paramétrage de cmake-data (3.7.2-1) ...
+Traitement des actions différées (« triggers ») pour libc-bin (2.24-11+deb9u3) ...
+Traitement des actions différées (« triggers ») pour man-db (2.7.6.1-2) ...
+Paramétrage de libjsoncpp1:armhf (1.7.4-3) ...
+Paramétrage de cmake (3.7.2-1) ...
+Traitement des actions différées (« triggers ») pour libc-bin (2.24-11+deb9u3) ...
+pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
+pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
+
+
+
+
+pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
+pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ sudo dpkg -i NFC-Reader-Library-4.010-2.deb
+---------------------------------------------------------------------------------------------------------
+Sélection du paquet nxprdlib précédemment désélectionné.
+(Lecture de la base de données... 142277 fichiers et répertoires déjà installés.)
+Préparation du dépaquetage de NFC-Reader-Library-4.010-2.deb ...
+Dépaquetage de nxprdlib (4.010.03.001609-2) ...
+Paramétrage de nxprdlib (4.010.03.001609-2) ...
+-- The C compiler identification is GNU 6.3.0
+-- The CXX compiler identification is GNU 6.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/local/src/nxprdlib
+Scanning dependencies of target NxpRdLibLinuxPN5180
+[  1%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/comps/phbalReg/src/Linux/phbalReg_Stub_Utils.c.o
+[  1%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/comps/phOsal/src/Posix/phOsal_Posix.c.o
+[  1%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/comps/phPlatform/src/Posix/phPlatform.c.o
+[  1%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/shared/phhwConfig.c.o
+[  2%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/phacDiscLoop.c.o
+[  2%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw.c.o
+[  2%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int.c.o
+[  2%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_A.c.o
+[  3%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_B.c.o
+[  3%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_F.c.o
+[  3%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_I18000p3m3.c.o
+[  4%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phacDiscLoop/src/Sw/phacDiscLoop_Sw_Int_V.c.o
+[  4%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phalFelica/src/phalFelica.c.o
+[  4%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phalFelica/src/Sw/phalFelica_Sw.c.o
+[  4%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phalI15693/src/phalI15693.c.o
+[  5%] Building C object linux/CMakeFiles/NxpRdLibLinuxPN5180.dir/__/nxprdlib/NxpRdLib/comps/phal
+
+
+
+
+....
+
+
+
+
+[ 99%] Building C object examples/NfcrdlibEx9_NTagI2C/CMakeFiles/NfcrdlibEx9_NTagI2CPN512.dir/NfcrdlibEx9_NTagI2C.c.o
+[ 99%] Linking C executable NfcrdlibEx9_NTagI2CPN512
+[ 99%] Built target NfcrdlibEx9_NTagI2CPN512
+Scanning dependencies of target NfcrdlibEx9_NTagI2CPN5180
+[ 99%] Building C object examples/NfcrdlibEx9_NTagI2C/CMakeFiles/NfcrdlibEx9_NTagI2CPN5180.dir/NfcrdlibEx9_NTagI2C.c.o
+[100%] Linking C executable NfcrdlibEx9_NTagI2CPN5180
+[100%] Built target NfcrdlibEx9_NTagI2CPN5180
+Scanning dependencies of target NfcrdlibEx9_NTagI2CRC663
+[100%] Building C object examples/NfcrdlibEx9_NTagI2C/CMakeFiles/NfcrdlibEx9_NTagI2CRC663.dir/NfcrdlibEx9_NTagI2C.c.o
+[100%] Linking C executable NfcrdlibEx9_NTagI2CRC663
+[100%] Built target NfcrdlibEx9_NTagI2CRC663
+pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
+
+
+
+
+
+pi@levelup:~/rfid_valves $ 
+pi@levelup:~/rfid_valves $ pip install nxppy
+-----------------------------------------------
+Collecting nxppy
+  Downloading https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
+Building wheels for collected packages: nxppy
+  Running setup.py bdist_wheel for nxppy ... done
+  Stored in directory: /home/pi/.cache/pip/wheels/20/23/89/97a3110bcd0cb919fd79ee68c4dbbaa2971255f3302ecdbf19
+Successfully built nxppy
+Installing collected packages: nxppy
+Successfully installed nxppy-1.6.0
+pi@levelup:~/rfid_valves $ 
+pi@levelup:~/rfid_valves $ 
+pi@levelup:~/rfid_valves $ sudo pip install nxppy
+Collecting nxppy
+  Downloading https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
+Building wheels for collected packages: nxppy
+  Running setup.py bdist_wheel for nxppy ... done
+  Stored in directory: /root/.cache/pip/wheels/20/23/89/97a3110bcd0cb919fd79ee68c4dbbaa2971255f3302ecdbf19
+Successfully built nxppy
+Installing collected packages: nxppy
+Successfully installed nxppy-1.6.0
+pi@levelup:~/rfid_valves $ 
+
+
+pi@levelup:~/rfid_valves $ 
+pi@levelup:~/rfid_valves $ sudo pip3 install nxppy
+--------------------------------------------------------
+Collecting nxppy
+  Using cached https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
+Building wheels for collected packages: nxppy
+  Running setup.py bdist_wheel for nxppy ... done
+  Stored in directory: /root/.cache/pip/wheels/20/23/89/97a3110bcd0cb919fd79ee68c4dbbaa2971255f3302ecdbf19
+Successfully built nxppy
+Installing collected packages: nxppy
+Successfully installed nxppy-1.6.0
+pi@levelup:~/rfid_valves $ pip3 install nxppy
+Collecting nxppy
+  Using cached https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
+Building wheels for collected packages: nxppy
+  Running setup.py bdist_wheel for nxppy ... done
+  Stored in directory: /home/pi/.cache/pip/wheels/20/23/89/97a3110bcd0cb919fd79ee68c4dbbaa2971255f3302ecdbf19
+Successfully built nxppy
+Installing collected packages: nxppy
+Successfully installed nxppy-1.6.0
+pi@levelup:~/rfid_valves $ 
+
+
+
+
+Activate the SPI interface
+-------------------------------
+pi@levelup:~/rfid_valves $ sudo raspi-config
+pi@levelup:~/rfid_valves $ 
+
+
+pi@levelup:~/rfid_valves $ cat /boot/config.txt | grep spi
+dtparam=spi=on
+pi@levelup:~/rfid_valves $ 
+pi@levelup:~/rfid_valves $ 
+pi@levelup:~/rfid_valves $ sudo python3 nxp_test.py 
+Card UID : 04263B6A643481 
+
+pi@levelup:~/rfid_valves $ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
