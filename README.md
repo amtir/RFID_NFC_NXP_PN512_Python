@@ -34,7 +34,9 @@ pip3 install nxppy
 sudo pip install nxppy
 sudo pip3 install nxppy
 
-sudo raspi-config    --> Activate/Enable the SPI bus (Reboot if necessary)
+Activate/Enable the SPI bus
+sudo raspi-config    
+Reboot
 
 cat /boot/config.txt | grep spi
 dtparam=spi=on
@@ -43,7 +45,7 @@ dtparam=spi=on
 
 ## License
 
-[DRINKOTEC] https://drinkotec.ch/
+[DRINKOTEC](https://drinkotec.ch/)
 
 
 
