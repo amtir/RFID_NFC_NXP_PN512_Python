@@ -1,51 +1,69 @@
-# RFID Mifare NFC tag NXP-PN512 Python
+# RFID / NFC Reader — NXP PN512 with Python on Raspberry Pi
 
-* Installation of the NFC-Reader-Library and the nxppy Python wrapper for interfacing with the PN512-based NXP EXPLORE-NFC shield for the Raspberry Pi. 
+Reads **MIFARE / NFC tag UIDs** with the **NXP EXPLORE-NFC** shield (PN512 chip) on a Raspberry Pi, through the **NXP NFC Reader Library** and the **nxppy** Python wrapper over **SPI**.
 
-* Activation / Enabling the SPI bus of the Raspberry-Pi to communicate with the RFID shield.
+## Features
 
-* Test the Python wrapper to read a UID Card.
+- Installs the NXP NFC Reader Library (Debian package) on Raspberry Pi OS
+- Enables the SPI bus to talk to the PN512 shield
+- Python script that detects cards and prints their UID continuously
 
+## Hardware
 
-## Usage
-
-```bash
-sudo python3 nxp_test.py 
-
-Card UID : 04263B6A643481
-Card UID : 04263B6A643481
-Card UID : 04263B6A643481
-Card UID : 04263B6A643481
-Card UID : 04263B6A643481
-Card UID : 04263B6A643481
-Card UID : 04263B6A643481
-```
+| Component | Details |
+|-----------|---------|
+| Board | Raspberry Pi |
+| Reader | NXP EXPLORE-NFC (PN512), plugged on the GPIO header |
+| Interface | SPI |
+| Tags | MIFARE Classic / Ultralight, NTAG and other ISO 14443A cards |
 
 ## Installation
 
 ```bash
 sudo apt-get update
-sudo apt-get install build-essential cmake python3-dev python2.7-dev
+sudo apt-get install build-essential cmake python3-dev
 
-sudo dpkg -i NFC-Reader-Library-4.010-2.deb
+# NXP NFC Reader Library (included in lib/)
+sudo dpkg -i lib/NFC-Reader-Library-4.010-2.deb
 
-pip install nxppy
-pip3 install nxppy
-sudo pip install nxppy
-sudo pip3 install nxppy
+# Python wrapper
+sudo pip3 install -r requirements.txt
 
-Activate/Enable the SPI bus
-sudo raspi-config    
-Reboot
-
-cat /boot/config.txt | grep spi
-dtparam=spi=on
+# Enable SPI: raspi-config → Interface Options → SPI, then reboot
+sudo raspi-config
+grep spi /boot/config.txt      # → dtparam=spi=on
 ```
 
+The full installation session is in [`docs/installation_log.txt`](docs/installation_log.txt). Screenshots of downloading the library from NXP are in [`photos/`](photos/).
 
-## License
+## Usage
 
-[DRINKOTEC](https://drinkotec.ch/)
+```bash
+sudo python3 src/nxp_test.py
+```
 
+```
+Card UID : 04XXXXXXXXXXXX
+Card UID : 04XXXXXXXXXXXX
+```
 
+The UID is masked here; `04` is the manufacturer code for NXP.
 
+## Repository Structure
+
+```
+.
+├── src/nxp_test.py      # Card UID reader
+├── lib/                 # NXP NFC Reader Library (.deb)
+├── docs/                # Installation session log
+├── photos/              # Library download screenshots
+└── requirements.txt
+```
+
+## Tech Stack
+
+Python 3 · nxppy · NXP NFC Reader Library · PN512 · SPI · Raspberry Pi · RFID / NFC (ISO 14443A)
+
+## Author
+
+**Akram M'Tir**, [@amtir](https://github.com/amtir)

@@ -15,7 +15,7 @@ https://github.com/svvitale/nxppy
 Installation process
 --------------------------
 
-pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ sudo apt-get install build-essential cmake python3-dev python2.7-dev
+pi@raspberrypi:~/rfid/RFID_NXP_Explorer_NFC_linux_spi $ sudo apt-get install build-essential cmake python3-dev python2.7-dev
 -----------------------------------------------------------------------------------------------------------------------------------
 Lecture des listes de paquets... Fait
 Construction de l'arbre des dépendances       
@@ -55,14 +55,14 @@ Traitement des actions différées (« triggers ») pour man-db (2.7.6.1-2) .
 Paramétrage de libjsoncpp1:armhf (1.7.4-3) ...
 Paramétrage de cmake (3.7.2-1) ...
 Traitement des actions différées (« triggers ») pour libc-bin (2.24-11+deb9u3) ...
-pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
-pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
+pi@raspberrypi:~/rfid/RFID_NXP_Explorer_NFC_linux_spi $ 
+pi@raspberrypi:~/rfid/RFID_NXP_Explorer_NFC_linux_spi $ 
 
 
 
 
-pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
-pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ sudo dpkg -i NFC-Reader-Library-4.010-2.deb
+pi@raspberrypi:~/rfid/RFID_NXP_Explorer_NFC_linux_spi $ 
+pi@raspberrypi:~/rfid/RFID_NXP_Explorer_NFC_linux_spi $ sudo dpkg -i NFC-Reader-Library-4.010-2.deb
 ---------------------------------------------------------------------------------------------------------
 Sélection du paquet nxprdlib précédemment désélectionné.
 (Lecture de la base de données... 142277 fichiers et répertoires déjà installés.)
@@ -123,14 +123,14 @@ Scanning dependencies of target NfcrdlibEx9_NTagI2CRC663
 [100%] Building C object examples/NfcrdlibEx9_NTagI2C/CMakeFiles/NfcrdlibEx9_NTagI2CRC663.dir/NfcrdlibEx9_NTagI2C.c.o
 [100%] Linking C executable NfcrdlibEx9_NTagI2CRC663
 [100%] Built target NfcrdlibEx9_NTagI2CRC663
-pi@levelup:~/rfid_valves/RFID_NXP_Explorer_NFC_linux_spi $ 
+pi@raspberrypi:~/rfid/RFID_NXP_Explorer_NFC_linux_spi $ 
 
 
 
 
 
-pi@levelup:~/rfid_valves $ 
-pi@levelup:~/rfid_valves $ pip install nxppy
+pi@raspberrypi:~/rfid $ 
+pi@raspberrypi:~/rfid $ pip install nxppy
 -----------------------------------------------
 Collecting nxppy
   Downloading https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
@@ -140,9 +140,9 @@ Building wheels for collected packages: nxppy
 Successfully built nxppy
 Installing collected packages: nxppy
 Successfully installed nxppy-1.6.0
-pi@levelup:~/rfid_valves $ 
-pi@levelup:~/rfid_valves $ 
-pi@levelup:~/rfid_valves $ sudo pip install nxppy
+pi@raspberrypi:~/rfid $ 
+pi@raspberrypi:~/rfid $ 
+pi@raspberrypi:~/rfid $ sudo pip install nxppy
 Collecting nxppy
   Downloading https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
 Building wheels for collected packages: nxppy
@@ -151,11 +151,11 @@ Building wheels for collected packages: nxppy
 Successfully built nxppy
 Installing collected packages: nxppy
 Successfully installed nxppy-1.6.0
-pi@levelup:~/rfid_valves $ 
+pi@raspberrypi:~/rfid $ 
 
 
-pi@levelup:~/rfid_valves $ 
-pi@levelup:~/rfid_valves $ sudo pip3 install nxppy
+pi@raspberrypi:~/rfid $ 
+pi@raspberrypi:~/rfid $ sudo pip3 install nxppy
 --------------------------------------------------------
 Collecting nxppy
   Using cached https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
@@ -165,7 +165,7 @@ Building wheels for collected packages: nxppy
 Successfully built nxppy
 Installing collected packages: nxppy
 Successfully installed nxppy-1.6.0
-pi@levelup:~/rfid_valves $ pip3 install nxppy
+pi@raspberrypi:~/rfid $ pip3 install nxppy
 Collecting nxppy
   Using cached https://files.pythonhosted.org/packages/e9/e8/1abff2872163a1c8f0a5b3c8793cf416b5873222413182eb75c777b084f3/nxppy-1.6.0.tar.gz
 Building wheels for collected packages: nxppy
@@ -174,25 +174,25 @@ Building wheels for collected packages: nxppy
 Successfully built nxppy
 Installing collected packages: nxppy
 Successfully installed nxppy-1.6.0
-pi@levelup:~/rfid_valves $ 
+pi@raspberrypi:~/rfid $ 
 
 
 
 
 Activate the SPI interface
 -------------------------------
-pi@levelup:~/rfid_valves $ sudo raspi-config
-pi@levelup:~/rfid_valves $ 
+pi@raspberrypi:~/rfid $ sudo raspi-config
+pi@raspberrypi:~/rfid $ 
 
 
-pi@levelup:~/rfid_valves $ cat /boot/config.txt | grep spi
+pi@raspberrypi:~/rfid $ cat /boot/config.txt | grep spi
 dtparam=spi=on
-pi@levelup:~/rfid_valves $ 
-pi@levelup:~/rfid_valves $ 
-pi@levelup:~/rfid_valves $ sudo python3 nxp_test.py 
+pi@raspberrypi:~/rfid $ 
+pi@raspberrypi:~/rfid $ 
+pi@raspberrypi:~/rfid $ sudo python3 nxp_test.py 
 Card UID : 04263B6A643481 
 
-pi@levelup:~/rfid_valves $ 
+pi@raspberrypi:~/rfid $ 
 
 
 
